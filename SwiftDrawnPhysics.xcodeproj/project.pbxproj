@@ -15,7 +15,6 @@
 		F43C42E519CBB9730092AC03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43C42E419CBB9730092AC03 /* Images.xcassets */; };
 		F43C42E819CBB9730092AC03 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F43C42E619CBB9730092AC03 /* LaunchScreen.xib */; };
 		F43C42F419CBB9730092AC03 /* SwiftDrawnPhysicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C42F319CBB9730092AC03 /* SwiftDrawnPhysicsTests.swift */; };
-		F480FE8919CBBC2D00CCE7C5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F480FE8819CBBC2D00CCE7C5 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +40,6 @@
 		F43C42ED19CBB9730092AC03 /* SwiftDrawnPhysicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDrawnPhysicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43C42F219CBB9730092AC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F43C42F319CBB9730092AC03 /* SwiftDrawnPhysicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDrawnPhysicsTests.swift; sourceTree = "<group>"; };
-		F480FE8819CBBC2D00CCE7C5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +63,6 @@
 		F43C42CB19CBB9730092AC03 = {
 			isa = PBXGroup;
 			children = (
-				F480FE8819CBBC2D00CCE7C5 /* Default-568h@2x.png */,
 				F43C42D619CBB9730092AC03 /* SwiftDrawnPhysics */,
 				F43C42F019CBB9730092AC03 /* SwiftDrawnPhysicsTests */,
 				F43C42D519CBB9730092AC03 /* Products */,
@@ -203,7 +200,6 @@
 				F43C42E819CBB9730092AC03 /* LaunchScreen.xib in Resources */,
 				F43C42E519CBB9730092AC03 /* Images.xcassets in Resources */,
 				F43C42DC19CBB9730092AC03 /* GameScene.sks in Resources */,
-				F480FE8919CBBC2D00CCE7C5 /* Default-568h@2x.png in Resources */,
 				F43C42E319CBB9730092AC03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,8 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var clearButton = SKLabelNode()
+    var objectArray = Array<SKNode>()
     var currentPath = CGPathCreateMutable()
     var currentDrawing = SKShapeNode()
     let lineWidth : CGFloat = 4
@@ -27,6 +29,12 @@ class GameScene: SKScene {
         self.backgroundColor = UIColor.whiteColor()
         self.physicsWorld.gravity = CGVectorMake(0, -9.8)
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        
+        clearButton = SKLabelNode(text: "Clear Items")
+        clearButton.fontColor = UIColor.blackColor()
+        clearButton.fontSize = 20
+        clearButton.position = CGPoint(x: self.size.width/2, y: self.size.height-25)
+        self.addChild(clearButton)
     }
     
     func setupGlobals(){
@@ -35,7 +43,22 @@ class GameScene: SKScene {
     }
     
     func setupGestureRecognizers(){
+        self.view?.addGestureRecognizer(UITapGestureRecognizer(target:self, action:Selector("handleTap:")))
         self.view?.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: Selector("handlePan:")))
+    }
+    
+    func handleTap(tapReco:UITapGestureRecognizer){
+        let touchLoc = self.convertPointFromView(tapReco.locationInView(tapReco.view))
+        
+        var nodes = self.nodesAtPoint(touchLoc)
+        for node in nodes{
+            if node as! SKNode == clearButton{
+                for item in objectArray {
+                    item.removeFromParent()
+                }
+                objectArray = Array<SKNode>()
+            }
+        }
     }
     
     func handlePan(panReco:UIPanGestureRecognizer){
@@ -74,6 +97,7 @@ class GameScene: SKScene {
         spriteNode.position = CGPoint(x: shapeNode.frame.width/2, y: shapeNode.frame.height/2)
         spriteNode.physicsBody = SKPhysicsBody(texture: spriteNode.texture, alphaThreshold: 0.99, size: spriteNode.size)
         self.addChild(spriteNode)
+        objectArray.append(spriteNode)
     }
     
     func adjustDrawing(){
