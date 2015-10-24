@@ -50,9 +50,9 @@ class GameScene: SKScene {
     func handleTap(tapReco:UITapGestureRecognizer){
         let touchLoc = self.convertPointFromView(tapReco.locationInView(tapReco.view))
         
-        var nodes = self.nodesAtPoint(touchLoc)
+        let nodes = self.nodesAtPoint(touchLoc)
         for node in nodes{
-            if node as! SKNode == clearButton{
+            if node == clearButton{
                 for item in objectArray {
                     item.removeFromParent()
                 }
@@ -94,8 +94,8 @@ class GameScene: SKScene {
         shapeNode.removeFromParent()
         
         //TRICKY: You must set the position of the spriteNode to the center of the shapeNode's frame to maintain alignment
-        spriteNode.position = CGPoint(x: shapeNode.frame.width/2, y: shapeNode.frame.height/2)
-        spriteNode.physicsBody = SKPhysicsBody(texture: spriteNode.texture, alphaThreshold: 0.99, size: spriteNode.size)
+        spriteNode.position = CGPoint(x: shapeNode.frame.origin.x + shapeNode.frame.width/2, y: shapeNode.frame.origin.y + shapeNode.frame.height/2)
+        spriteNode.physicsBody = SKPhysicsBody(texture: spriteNode.texture!, alphaThreshold: 0.99, size: spriteNode.size)
         self.addChild(spriteNode)
         objectArray.append(spriteNode)
     }
