@@ -66,10 +66,12 @@ class GameScene: SKScene {
         
         if panReco.state == UIGestureRecognizerState.Began{
             CGPathMoveToPoint(currentPath, nil, touchLoc.x, touchLoc.y)
+            currentDrawing.path = currentPath
+            self.addChild(currentDrawing)
         }
         else if panReco.state == UIGestureRecognizerState.Changed{
             CGPathAddLineToPoint(currentPath, nil, touchLoc.x, touchLoc.y)
-            adjustDrawing()
+            currentDrawing.path = currentPath
         }
         else if panReco.state == UIGestureRecognizerState.Ended{
             CGPathAddLineToPoint(currentPath, nil, touchLoc.x, touchLoc.y)
@@ -98,12 +100,6 @@ class GameScene: SKScene {
         spriteNode.physicsBody = SKPhysicsBody(texture: spriteNode.texture!, alphaThreshold: 0.99, size: spriteNode.size)
         self.addChild(spriteNode)
         objectArray.append(spriteNode)
-    }
-    
-    func adjustDrawing(){
-        currentDrawing.removeFromParent()
-        currentDrawing.path = currentPath
-        self.addChild(currentDrawing)
     }
     
     func getRandomColor() -> UIColor{
